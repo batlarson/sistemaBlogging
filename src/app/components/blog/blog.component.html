@@ -1,0 +1,39 @@
+<section>
+  <div class="form">
+    <h2>Esribe tu Noticia</h2>
+    <div>
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" [(ngModel)]="nuevaNoticia.titulo" />
+    </div>
+    <div>
+      <label for="imagen">Imagen (escriba su url)</label>
+      <input type="text" id="imagen" [(ngModel)]="nuevaNoticia.imagen" />
+    </div>
+    <div>
+      <label for="noticia">Noticia</label>
+      <textarea
+        id="noticia"
+        class="noticia"
+        [(ngModel)]="nuevaNoticia.noticia"
+      ></textarea>
+    </div>
+    <div>
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" [(ngModel)]="nuevaNoticia.fecha" />
+    </div>
+    <button (click)="guardar()">Publicar una nueva Noticia</button>
+  </div>
+  <div class="publicado">
+    <div class="news">
+      <h2>Noticias</h2>
+      <div *ngFor="let noticia of arrNoticias">
+        <article>
+          <h3>{{ noticia.titulo }}</h3>
+          <img [src]="noticia.imagen" />
+          <p>{{ noticia.noticia }}</p>
+          <p class="lafecha">{{ noticia.fecha }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
